@@ -1,0 +1,87 @@
+/* Reset básico e corpo */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f0f4f8, #d9e4ec);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Caixa central */
+.container {
+  text-align: center;
+  background: #ffffff;
+  padding: 40px 20px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  max-width: 400px;
+  width: 100%;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Título */
+.container h1 {
+  font-size: 22px;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Botões */
+.btn {
+  display: block;
+  width: 100%;
+  margin: 12px 0;
+  padding: 15px;
+  font-size: 18px;
+  text-decoration: none;
+  color: white;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* WhatsApp */
+.btn-whatsapp {
+  background: #25D366;
+}
+.btn-whatsapp:hover {
+  background: #1ebd59;
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+}
+
+/* E-mail */
+.btn-email {
+  background: #4285F4;
+}
+.btn-email:hover {
+  background: #2c6ad9;
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(66, 133, 244, 0.4);
+}
+
+/* Animação suave de entrada */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade extra para mobile */
+@media (max-width: 420px) {
+  .container {
+    padding: 30px 15px;
+  }
+  .btn {
+    font-size: 16px;
+    padding: 14px;
+  }
+}
