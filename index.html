@@ -1,26 +1,358 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meus Contatos</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tereza Gama | Psicologia Holística</title>
+    <link rel="icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Preconnect e Preload das fontes para evitar "pulo" no carregamento -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/playfairdisplay/v36/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKeiunDXbtM.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/lato/v24/S6uyw4BMUTPHjx4wWw.woff2" as="font" type="font/woff2" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
 </head>
 <body>
-  <div class="container">
-    <h1>Entre em Contato</h1>
 
-    <!-- Botão WhatsApp -->
-    <a href="https://wa.me/5571991195508?text=Ol%C3%A1%20Tereza%2C%20gostaria%20de%20entrar%20em%20contato%20para%20um%20atendimento." 
-       class="btn btn-whatsapp" target="_blank">
-       💬 Falar no WhatsApp
+    <!-- Menu de Opções -->
+    <!-- HEADER: Cabeçalho fixo com logo e menu de navegação principal. -->
+    <header class="header">
+    <div class="container nav-container">
+        
+        <a href="#" class="logo">Tereza Gama</a>
+
+        <nav class="nav-menu">
+            <ul class="nav-list">
+                <li><a href="#">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#contato" class="btn-nav">Agendar Consulta</a></li>
+            </ul>
+        </nav>
+        <button class="menu-hamburger" aria-label="Abrir menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+
+    <!-- Banner Principal -->
+    <!-- HERO: Seção de boas-vindas principal com título, subtítulo e chamada para ação (CTA). -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1 class="reveal-on-scroll">Um espaço seguro para o seu autoconhecimento</h1>
+            <p class="reveal-on-scroll">Terapia focada no acolhimento, escuta ativa e desenvolvimento emocional. Vamos juntos ressignificar sua jornada.</p>
+            <a href="#contato" class="btn-primary reveal-on-scroll">Marcar Primeira Sessão</a>
+        </div>
+    </section>
+
+    <!-- Sobre Mim --> 
+    <!-- SOBRE: Seção de apresentação com foto, texto descritivo e credenciais. -->
+    <section id="sobre" class="about section-padding reveal-on-scroll">
+        <div class="container about-grid">
+            <div class="about-image">
+                <img src="img/img_tereza.png" alt="Foto da Terapeuta">
+            </div>
+            <div class="about-text">
+                <h2>Sobre Mim</h2>
+                <p>Olá, sou Tereza Gama, terapeuta Integrativa com formações nas técnicas holísticas:</p>
+
+                <ul class="credentials">
+                    <li>✓ Reiki</li>
+                    <li>✓ Florais de Bach</li>
+                    <li>✓ Tameana Healing</li>
+                    <li class="credentials-li-3">✓ Aura Master</li>
+                </ul>
+
+                <p>Há muito tempo me dedico aos estudos voltados à espiritualidade e Expansão da Consciência. Venho buscando o autoconhecimento para meu crescimento pessoal, além de poder ajudar as pessoas no processo de autocura, resgatando suas habilidades divinas e provocando mudanças bastante profundas em seu estado de ser, sentir e agir.</p>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Como Posso te Ajudar? (Serviços) -->
+    <!-- SERVIÇOS: Grade de cards descrevendo as técnicas utilizadas. -->
+    <section id="servicos" class="services section-padding reveal-on-scroll">
+        <div class="container_services">
+
+            <h2 class="section-title">Técnicas Utilizadas</h2>
+
+            <!-- Início do Marquee de Serviços (CSS Puro) -->
+            <div class="marquee-container">
+                <div class="marquee-content">
+                    <!-- Grupo Original de Cards -->
+                    <div class="card">
+                        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l-9.5 11 9.5 9 9.5-9z"></path><path d="M12 2v20"></path><path d="M2.5 13h19"></path></svg></div>
+                        <h3>Tameana Healing</h3>
+                        <p>Técnica vibracional que utiliza cristais de quartzo e geometria sagrada para reordenar seus centros energéticos.</p>
+                    </div>
+                    <div class="card">
+                        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path><path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path><path d="M12 3v4"></path><path d="M12 17v4"></path><path d="M3 12h4"></path><path d="M17 12h4"></path></svg></div>
+                        <h3>Reiki</h3>
+                        <p>Canalização de energia vital através da imposição de mãos, restabelecendo o equilíbrio físico, mental e espiritual.</p>
+                    </div>
+                    <div class="card">
+                        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7.5a4.5 4.5 0 1 1 4.5 4.5M12 7.5A4.5 4.5 0 1 0 7.5 12M12 7.5V9m-4.5 3a4.5 4.5 0 1 0 4.5 4.5M12 16.5v2.25m4.5-6.75A4.5 4.5 0 1 1 12 12"></path></svg></div>
+                        <h3>Florais de Bach</h3>
+                        <p>Essências naturais extraídas de flores que atuam diretamente nas emoções, transformando estados negativos em virtudes.</p>
+                    </div>
+                    <div class="card">
+                        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="M4.93 4.93l1.41 1.41"></path><path d="M17.66 17.66l1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="M6.34 17.66l-1.41 1.41"></path><path d="M19.07 4.93l-1.41 1.41"></path></svg></div>
+                        <h3>Aura Master</h3>
+                        <p>Tecnologia terapêutica de ação rápida para limpeza de traumas, medos e bloqueios, ativando seu fluxo de prosperidade.</p>
+                    </div>
+
+                    <!-- Grupo Duplicado para Loop Infinito -->
+                    <div class="card">
+                        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l-9.5 11 9.5 9 9.5-9z"></path><path d="M12 2v20"></path><path d="M2.5 13h19"></path></svg></div>
+                        <h3>Tameana Healing</h3>
+                        <p>Técnica vibracional que utiliza cristais de quartzo e geometria sagrada para reordenar seus centros energéticos.</p>
+                    </div>
+                    <div class="card">
+                        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path><path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path><path d="M12 3v4"></path><path d="M12 17v4"></path><path d="M3 12h4"></path><path d="M17 12h4"></path></svg></div>
+                        <h3>Reiki</h3>
+                        <p>Canalização de energia vital através da imposição de mãos, restabelecendo o equilíbrio físico, mental e espiritual.</p>
+                    </div>
+                    <div class="card">
+                        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7.5a4.5 4.5 0 1 1 4.5 4.5M12 7.5A4.5 4.5 0 1 0 7.5 12M12 7.5V9m-4.5 3a4.5 4.5 0 1 0 4.5 4.5M12 16.5v2.25m4.5-6.75A4.5 4.5 0 1 1 12 12"></path></svg></div>
+                        <h3>Florais de Bach</h3>
+                        <p>Essências naturais extraídas de flores que atuam diretamente nas emoções, transformando estados negativos em virtudes.</p>
+                    </div>
+                    <div class="card">
+                        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="M4.93 4.93l1.41 1.41"></path><path d="M17.66 17.66l1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="M6.34 17.66l-1.41 1.41"></path><path d="M19.07 4.93l-1.41 1.41"></path></svg></div>
+                        <h3>Aura Master</h3>
+                        <p>Tecnologia terapêutica de ação rápida para limpeza de traumas, medos e bloqueios, ativando seu fluxo de prosperidade.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <!-- DEPOIMENTOS: Carrossel de depoimentos de clientes. Utiliza a biblioteca Swiper.js. -->
+    <section id="depoimentos" class="testimonials section-padding reveal-on-scroll">
+        <div class="container">
+            <h2 class="section-title">O que dizem meus pacientes</h2>
+
+            <!-- Novo container com layout Flexbox -->
+            <div class="testimonial-layout">
+                <!-- Seta Esquerda -->
+                <div class="swiper-button-prev"></div>
+    
+                <!-- O carrossel em si (ocupa o espaço central) -->
+                <div class="swiper testimonial-swiper">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-card">
+                                <div class="quote-icon">“</div>
+                                <p>A Tereza é uma profissional incrível. Cheguei com crises de ansiedade e, através do Reiki e da escuta acolhedora, encontrei meu equilíbrio novamente.</p>
+                                <div class="author">- M.S., 34 anos</div>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-card">
+                                <div class="quote-icon">“</div>
+                                <p>O Tameana foi uma descoberta maravilhosa. Senti uma limpeza energética profunda logo na primeira sessão. O ambiente é super acolhedor e seguro.</p>
+                                <div class="author">- Ana Paula, Salvador</div>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-card">
+                                <div class="quote-icon">“</div>
+                                <p>Faço acompanhamento com Florais e tem sido transformador. Agradeço muito pela dedicação e pelo carinho em cada atendimento. Recomendo de olhos fechados!</p>
+                                <div class="author">- R.L., Paciente há 1 ano</div>
+                            </div>
+                        </div>
+                        <!-- Slide 4 (Novo) -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-card">
+                                <div class="quote-icon">“</div>
+                                <p>A terapia com Aura Master me ajudou a superar bloqueios que eu nem sabia que tinha. Sinto-me mais leve e confiante. Gratidão eterna!</p>
+                                <div class="author">- J.C., 29 anos</div>
+                            </div>
+                        </div>
+                        <!-- Slide 5 (Novo) -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-card">
+                                <div class="quote-icon">“</div>
+                                <p>Profissional muito competente e atenciosa. As sessões de Reiki à distância funcionam perfeitamente e me trazem uma paz imensa durante a semana.</p>
+                                <div class="author">- Fernanda M.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Seta Direita -->
+                <div class="swiper-button-next"></div>
+            </div>
+    
+            <!-- Paginação (abaixo e centralizada) -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <!-- FAQ: Seção de perguntas frequentes em formato de acordeão (accordion). -->
+    <section id="faq" class="faq section-padding reveal-on-scroll">
+    <div class="container">
+        <h2 class="section-title">Dúvidas Frequentes</h2>
+        
+        <div class="faq-grid">
+    
+    <div class="faq-item">
+        <div class="faq-question">
+            Como funciona o atendimento online?
+            <span class="arrow"></span>
+        </div>
+        <div class="faq-answer">
+            <p>O atendimento online ocorre por videochamada (Google Meet ou WhatsApp) com a mesma eficácia e sigilo do presencial. Você só precisa de um local reservado e boa conexão.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">
+            Qual a duração da sessão?
+            <span class="arrow"></span>
+        </div>
+        <div class="faq-answer">
+            <p>As sessões têm duração média de 50 minutos a 1 hora, dependendo da técnica utilizada (Reiki, Tameana, etc).</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">
+            Você aceita plano de saúde?
+            <span class="arrow"></span>
+        </div>
+        <div class="faq-answer">
+            <p>Atendo apenas na modalidade particular. No entanto, forneço recibo para que você possa solicitar o reembolso junto ao seu convênio, caso ele ofereça esse benefício.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">
+            Como agendar uma consulta?
+            <span class="arrow"></span>
+        </div>
+        <div class="faq-answer">
+            <p>O agendamento é feito diretamente pelo WhatsApp ou preenchendo o formulário abaixo. Vamos encontrar o melhor horário para você.</p>
+        </div>
+    </div>
+
+    </div>
+    </section>
+
+    <!-- Mensagem Motivacional-->
+    <!-- CITAÇÃO: Bloco de destaque com uma citação inspiradora. -->
+    <section class="quote">
+        <div class="container">
+            <blockquote>"Quem olha para fora sonha, quem olha para dentro desperta."</blockquote>
+            <cite>- Carl Jung</cite>
+        </div>
+    </section>
+
+    <!-- Entre em Contato (Agendar Consulta) -->
+    <!-- CONTATO: Seção final com informações de contato, links de redes sociais e mapa de localização. -->
+    <section id="contato" class="contact section-padding reveal-on-scroll">
+    <div class="container contact-grid">
+        
+        <div class="contact-info">
+            <h2>Entre em Contato</h2>
+            <p class="contact-intro">Estou à disposição para tirar dúvidas.</p>
+            
+            <ul class="contact-list">
+                <li>
+                    <a href="https://instagram.com/gama.terapeuta" target="_blank">
+                        <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </div>
+                        <span>@gama.terapeuta</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://wa.me/5571991195508" target="_blank">
+                        <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <span>(71) 99119-5508</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="mailto:tgterapeuta@gmail.com">
+                        <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </div>
+                        <span>tgterapeuta@gmail.com</span>
+                    </a>
+                </li>
+            </ul>
+
+            <a href="https://wa.me/5571991195508?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20visita" target="_blank" class="btn-primary btn-wide">
+                Agende Agora
+            </a>
+        </div>
+
+        <div class="contact-content">
+            <h2>Local de Atendimento</h2>
+            
+           <div class="location-clean">
+    
+    <p class="address-simple">
+        <strong>Edifício Iguará</strong> <br>
+        Rua Jardim Santo Antônio, 354, Brotas <br>
+        Salvador - BA
+    </p>
+
+    <div class="map-frame">
+        <iframe 
+            width="100%" 
+            height="280" 
+            style="border:0;" 
+            loading="lazy" 
+            allowfullscreen 
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=Rua+Jardim+Santo+Ant%C3%B4nio,+354,+Salvador+-+BA&t=&z=17&ie=UTF8&iwloc=B&output=embed">
+        </iframe>
+    </div>
+
+</div>
+        </div>
+
+    </div>
+</section> 
+
+    <!-- Rodapé -->
+
+    <footer role="contentinfo">
+        <div class="container">
+            <p>&copy; 2026 Tereza Gama. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botão de WhatsApp -->
+
+    <a href="https://wa.me/5571991195508?text=Ol%C3%A1%20Tereza%2C%20gostaria%20de%20entrar%20em%20contato%20para%20um%20atendimento."
+       target="_blank" 
+       class="whatsapp-float">
+
+        <img src="img/whatsapp.png" alt="Fale comigo no WhatsApp">
+
     </a>
 
-    <!-- Botão E-mail -->
-    <a href="mailto:tgterapeuta@gmail.com?subject=Contato%20para%20atendimento&body=Ol%C3%A1%20Tereza%2C%0AGostaria%20de%20entrar%20em%20contato%20para%20um%20atendimento." 
-       class="btn btn-email" target="_blank">
-       📧 Enviar E-mail
-    </a>
-  </div>
+    <!-- Swiper.js JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="script.js"></script>
+    
 </body>
 </html>
