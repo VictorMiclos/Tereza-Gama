@@ -1,87 +1,770 @@
-/* Reset básico e corpo */
+/* --- Variáveis de Cores --- */
+
+:root {
+    --primary-color: #7A9E9F; /* Verde Sálvia Suave */
+    --primary-dark: #5D7A72;  /* Verde Escuro para hover */
+    --accent-color: #D8C3A5;  /* Bege Areia */
+    --bg-light: #F9F7F2;      /* Off-white creme */
+    --text-color: #4A4A4A;    /* Cinza Escuro Suave */
+    --text-light: #666666;
+    --white: #FFFFFF;
+}
+
+/* --- Reset Básico --- */
+
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* SOLUÇÃO: Garante que, ao clicar em um link âncora (ex: #sobre), o topo da seção não
+       fique escondido atrás do cabeçalho fixo. O valor deve ser a altura do header (70px). */
+    scroll-padding-top: 70px;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #f0f4f8, #d9e4ec);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 20px;
+    font-family: 'Lato', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-light);
+    line-height: 1.6;
 }
 
-/* Caixa central */
+h1, h2, h3, .logo {
+    font-family: 'Playfair Display', serif; /* Fonte serifada para elegância */
+    color: var(--primary-dark);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+ul { list-style: none; }
+
 .container {
-  text-align: center;
-  background: #ffffff;
-  padding: 40px 20px;
-  border-radius: 20px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-  max-width: 400px;
-  width: 100%;
-  animation: fadeIn 1s ease-in-out;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* Título */
-.container h1 {
-  font-size: 22px;
-  margin-bottom: 25px;
-  color: #333;
+.section-padding { 
+    padding: 50px 0;
 }
 
-/* Botões */
-.btn {
-  display: block;
-  width: 100%;
-  margin: 12px 0;
-  padding: 15px;
-  font-size: 18px;
-  text-decoration: none;
-  color: white;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-align: center;
+/* --- Classes para Botões --- */
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
 }
 
-/* WhatsApp */
-.btn-whatsapp {
-  background: #25D366;
-}
-.btn-whatsapp:hover {
-  background: #1ebd59;
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
 }
 
-/* E-mail */
-.btn-email {
-  background: #4285F4;
-}
-.btn-email:hover {
-  background: #2c6ad9;
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(66, 133, 244, 0.4);
+/* --- Menu de Opções --- */
+
+.header {
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* Animação para entrada suave e para mascarar o carregamento da fonte */
+    animation: fadeIn 1.5s ease-out;
+    animation-fill-mode: both;
 }
 
-/* Animação suave de entrada */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo {
+    font-size: 1.7rem;
+    font-weight: 700; /* O peso da fonte já é herdado de h1, h2, h3, .logo, mas é bom manter para clareza */
+}
+
+nav ul { display: flex; gap: 25px; align-items: center; }
+nav a:hover { color: var(--primary-color); }
+
+.btn-nav {
+    border: 1px solid var(--primary-color);
+    padding: 8px 20px;
+    border-radius: 20px;
+    color: var(--primary-color);
+}
+
+.btn-nav:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* --- Banner Principal --- */
+
+.hero {
+    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?q=80&w=1600&auto=format&fit=crop'); 
+    /* Imagem de fundo genérica de natureza/calma */
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--text-light);
+}
+
+/* --- Animação em cascata para o Hero --- */
+.hero-content .reveal-on-scroll {
+    transition-delay: 0s; /* Delay padrão para o H1 */
+    transform: none; /* Remove o efeito de subida APENAS no hero para evitar o "salto" */
+}
+.hero-content .reveal-on-scroll:nth-child(2) { transition-delay: 0.2s; } /* Delay para o parágrafo */
+.hero-content .reveal-on-scroll:nth-child(3) { transition-delay: 0.4s; } /* Delay para o botão */
+
+/* --- Sobre Mim --- */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 10px 10px 0px var(--accent-color);
+}
+
+.about-text h2 {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+.credentials li {
+    margin-top: 10px;
+    color: var(--primary-dark);
+    margin-left: 20px;
+}
+
+.credentials-li-3 {
+    margin-bottom: 10px;
+}
+
+
+
+/* --- Como Posso te Ajudar? (Serviços) --- */
+
+                /* Container que segura o conteúdo no meio da tela */
+.container_services {
+    max-width: 1100px; /* Limita a largura. Se quiser mais estreito, mude para 1000px */
+    margin: 0 auto;    /* Centraliza o bloco na tela */
+    padding: 0 20px;   /* Garante que não encoste nas bordas no celular */
+}
+
+.card {
+    background: var(--white); /* Fundo branco para destacar do site */
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.4s ease; /* Transição suave para tudo */
+    border: 1px solid #f0f0f0; /* Borda cinza muito sutil */
+    position: relative;
+    top: 0;
+    
+    /* Flexbox para alinhar tudo perfeitamente */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+/* O Efeito de "Flutuar" ao passar o mouse */
+.card:hover {
+    top: -10px; /* Sobe 10 pixels */
+    box-shadow: 0 15px 30px rgba(93, 122, 114, 0.15); /* Sombra verde suave */
+    border-color: var(--primary-color); /* Borda fica verde */
+}
+
+/* O Ícone e seu Círculo */
+.service-icon {
+    width: 70px;
+    height: 70px;
+    background-color: var(--bg-light); /* Círculo bege claro */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    color: var(--primary-dark);
+    transition: 0.4s;
+}
+
+/* Quando passa o mouse no card, o ícone muda de cor */
+.card:hover .service-icon {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: rotateY(180deg); /* Um charme extra: o ícone gira */
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: var(--primary-dark);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+}
+
+.card p {
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+/* --- Estilos para o Marquee de Serviços (CSS Puro) --- */
+.marquee-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    /* Efeito de fade nas laterais para um acabamento mais profissional */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+.marquee-content {
+    display: flex;
+    width: fit-content; /* A largura se ajusta ao conteúdo total (original + duplicado) */
+    animation: marquee 30s linear infinite;
+}
+
+/* Pausa a animação quando o mouse está sobre o container */
+.marquee-container:hover .marquee-content {
+    animation-play-state: paused;
+}
+
+/* A animação do marquee */
+@keyframes marquee {
+    from { transform: translateX(0%); }
+    to { transform: translateX(-50%); } /* Move exatamente a metade da largura total */
+}
+
+/* Ajustes nos cards para funcionarem dentro do marquee */
+.marquee-content .card {
+    width: 300px; /* Largura fixa para cada card */
+    margin: 0 15px; /* Espaçamento entre os cards */
+    flex-shrink: 0; /* Impede que os cards sejam espremidos */
+}
+
+/* --- Seção de Depoimentos --- */
+.testimonials {
+    background-color: var(--bg-light); 
+}
+
+/* Novo container que usa Flexbox para alinhar setas e carrossel */
+.testimonial-layout {
+    display: flex;
+    align-items: center; /* Centraliza as setas verticalmente com os slides */
+    gap: 10px; /* Pequeno espaço entre as setas e o carrossel */
+}
+
+/* O carrossel principal */
+.testimonial-swiper {
+    flex-grow: 1; /* Faz o carrossel ocupar todo o espaço disponível */
+    /* CORREÇÃO CRÍTICA: Impede que o Swiper quebre o layout flex ao encolher.
+       Sem isso, o carrossel não respeita os limites do contêiner pai. */
+    min-width: 0;
+}
+
+.swiper-slide {
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.testimonial-card {
+    background-color: var(--white);
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    position: relative;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    border: 1px solid transparent;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+.quote-icon {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: var(--accent-color);
+    line-height: 0.5;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+}
+
+.author {
+    font-weight: bold;
+    color: var(--primary-dark);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+/* --- Estilos para Controles do Swiper (Abordagem Flexbox) --- */
+
+/* As setas agora são elementos flex, então resetamos o posicionamento absoluto */
+.testimonial-layout .swiper-button-prev,
+.testimonial-layout .swiper-button-next {
+    position: static; /* A MÁGICA: Faz as setas se comportarem como blocos normais */
+    width: auto;
+    height: auto;
+    margin: 0;
+    color: var(--primary-color);
+    transition: transform 0.2s ease;
+}
+
+.testimonial-layout .swiper-button-prev:hover,
+.testimonial-layout .swiper-button-next:hover {
+    transform: scale(1.1);
+}
+
+/* Paginação (Bolinhas) - posicionada abaixo do carrossel */
+.swiper-pagination {
+    position: static;
+    margin-top: 30px; /* Espaço entre o carrossel e as bolinhas */
+}
+
+.swiper-pagination-bullet {
+    background-color: var(--accent-color);
+    width: 10px;
+    height: 10px;
+    opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--primary-color);
+    opacity: 1;
+}
+
+/* --- FAQ --- */
+
+
+/* --- FAQ Suave (Accordion Style) --- */
+
+.faq {
+    background-color: var(--white);
+}
+
+.faq-grid {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* O container de cada pergunta */
+.faq-item {
+    border-bottom: 1px solid #e0e0e0; /* Linha divisória fina */
+}
+
+/* A Pergunta (Clicável) */
+.faq-question {
+    padding: 25px 10px;
+    font-weight: 700;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s;
+}
+
+.faq-question:hover {
+    color: var(--primary-dark);
+}
+
+/* A Resposta (Escondida inicialmente) */
+.faq-answer {
+    max-height: 0; /* Altura zero = escondido */
+    overflow: hidden; /* Esconde o que passar da altura */
+    transition: max-height 0.4s ease-out; /* A mágica da suavidade */
+}
+
+.faq-answer p {
+    padding: 0 10px 25px 10px; /* Espaço do texto */
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+/* --- Estilo da Seta (Arrow) --- */
+.arrow {
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    transform: rotate(45deg); /* Posição inicial (seta pra baixo) */
+    transition: transform 0.3s ease;
+    margin-right: 10px;
+}
+
+/* --- Quando o item estiver ATIVO (Aberto) --- */
+
+.faq-item.active .arrow {
+    transform: rotate(225deg); /* Gira a seta pra cima */
+}
+
+.faq-item.active .faq-question {
+    color: var(--primary-dark);
+}
+
+
+
+/* --- Mensagem Motivacional --- */
+
+.quote {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 60px 0;
+}
+
+.quote blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+/* --- Entre em Contato (Agendar Consulta) --- */
+
+
+
+                /* --- Seção Contato & Localização (Ajustado e Compacto) --- */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide a tela no meio */
+    gap: 60px;
+    align-items: start; /* Alinha tudo no topo */
+}
+
+                /* Títulos (H2) */
+.contact-info h2,
+.contact-content h2 {
+    margin-bottom: 15px; /* Espaço pequeno abaixo do título */
+    color: var(--primary-dark); /* Garante a cor padrão do site */
+}
+
+                /* Texto Introdutório ("Estou à disposição...") */
+.contact-intro {
+    color: var(--text-color);
+    margin-bottom: 25px; /* Reduzi o espaço antes da lista */
+    font-size: 1rem; /* Tamanho padrão do corpo do site */
+}
+
+                /* --- Lista de Contatos (Lado Esquerdo) --- */
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaço menor entre cada item da lista (antes era 20px) */
+    margin-bottom: 30px; /* Espaço entre a lista e o botão */
+}
+
+.contact-list li a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1rem; /* Tamanho consistente com o site */
+    color: var(--text-color);
+    padding: 5px 0; /* Padding menor para aproximar os itens */
+    transition: 0.3s;
+}
+
+.contact-list li a:hover {
+    transform: translateX(5px);
+    color: var(--primary-dark);
+}
+
+                /* O Círculo do Ícone */
+.icon-circle {
+    width: 40px; /* Levemente menor para ficar mais delicado */
+    height: 40px;
+    background-color: rgba(122, 158, 159, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    transition: 0.3s;
+    flex-shrink: 0; /* Garante que a bolinha não amasse se o texto for grande */
+}
+
+.contact-list li a:hover .icon-circle {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+                /* --- Botão "Agende Agora" (Estilo Pílula) --- */
+.btn-wide {
+    display: inline-block; /* Comporta-se como botão padrão */
+    width: 100%; /* Ocupa a largura da coluna esquerda */
+    text-align: center;
+    padding: 14px 0;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(122, 158, 159, 0.3);
+    margin-top: 10px; /* Pequeno ajuste fino */
+}
+
+                /* --- Lado Direito (Endereço e Mapa) --- */
+.location-clean {
+    margin-top: 0; /* Remove margem extra no topo */
+}
+
+.address-simple {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    line-height: 1.6;
+    padding-left: 15px;
+    border-left: 3px solid var(--primary-color); /* Linha verde lateral para destaque */
+}
+
+.map-frame {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08); /* Sombra mais suave */
+    border: 4px solid var(--white);
+    transition: transform 0.3s ease;
+}
+
+.map-frame:hover {
+    transform: translateY(-3px);
+}
+
+/* --- Menu Hamburger --- */
+.menu-hamburger {
+    display: none; /* Escondido por padrão em telas grandes */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1010; /* Acima do menu para ser clicável */
+}
+
+.menu-hamburger span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-dark);
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    transform-origin: center;
+}
+
+/* --- Animação de Fade-in ao Rolar --- */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px); /* Começa um pouco abaixo para um efeito de subida */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Animações --- */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-/* Responsividade extra para mobile */
-@media (max-width: 420px) {
-  .container {
-    padding: 30px 15px;
-  }
-  .btn {
-    font-size: 16px;
-    padding: 14px;
-  }
+/* --- Rodapé --- */
+footer {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
+
+
+/* --- Responsividade Geral (Mobile First) --- */
+@media (max-width: 768px) {
+    /* Mostra o hamburger no mobile */
+    .menu-hamburger {
+        display: flex;
+    }
+
+    /* Animação do Hamburger para 'X' quando ativo */
+    .menu-hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .menu-hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Esconde a navegação e a prepara para aparecer */
+    .nav-menu {
+        position: fixed;
+        top: 70px; /* Abaixo do header */
+        right: 0;
+        width: 80%;
+        max-width: 320px;
+        height: calc(100vh - 70px);
+        background-color: var(--bg-light);
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        transform: translateX(100%); /* Começa fora da tela */
+        transition: transform 0.4s ease-in-out;
+        padding-top: 40px;
+        z-index: 999;
+    }
+
+    /* Quando o menu estiver ativo, ele entra na tela */
+    .nav-menu.active {
+        transform: translateX(0);
+    }
+
+    /* Ajusta a lista de links para o menu mobile */
+    .nav-menu .nav-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .hero h1 { font-size: 2.5rem; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .about-image { order: -1; } /* Coloca a imagem acima do texto no celular */
+
+    /* Esconde as setas do carrossel para não espremer o conteúdo */
+    .testimonial-layout .swiper-button-prev,
+    .testimonial-layout .swiper-button-next {
+        display: none;
+    }
+
+    .contact-grid {
+        gap: 40px;
+    }
+    
+    .btn-wide {
+        width: 100%; /* No celular garante largura total */
+    }
+
+    .whatsapp-float {
+        bottom: 15px;
+        right: 15px;
+    }
+    .whatsapp-float img {
+        width: 50px;
+    }
+}
+                /* --- Botão WhatsApp Flutuante --- */
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;  /* Distância do rodapé */
+    right: 20px;   /* Distância da direita */
+    z-index: 1000; /* Garante que fique acima de tudo */
+    transition: transform 0.3s ease; /* Animação suave */
+}
+
+.whatsapp-float img {
+    width: 60px;   /* Tamanho do ícone */
+    height: auto;
+    filter: drop-shadow(0 4px 5px rgba(0,0,0,0.3)); /* Sombra para dar destaque */
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1); /* Aumenta levemente */
+}
+
+
+/* --- CORREÇÃO DE CORES E SEÇÕES (Efeito Zebra) --- */
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--primary-dark);
+    text-align: center;
+    margin-bottom: 50px; /* Devolve o espaçamento que parecia ter sumido */
+}
+
+/* 2. Seção Sobre Mim -> Fica BEGE (já é o padrão do body, mas garantimos) */
+#sobre { background-color: var(--bg-light); }
+
+/* 3. Seção Técnicas (Serviços) -> MUDAR PARA BRANCO */
+#servicos { background-color: var(--white); }
+
+/* Ajuste nos Cards para eles se destacarem no fundo branco */
+#servicos .card {
+    background-color: var(--white);
+    border: 1px solid #e0e0e0; /* Borda um pouco mais visível */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* 4. Seção Depoimentos -> MUDAR PARA BEGE */
+#depoimentos { background-color: var(--bg-light); }
+
+/* 5. Seção FAQ -> MUDAR PARA BRANCO */
+#faq { background-color: var(--white); }
+
+/* 6. Seção Contato -> MUDAR PARA BEGE */
+#contato { background-color: var(--bg-light); }
+
+/* Garante que todas as seções tenham respiro em cima e embaixo */
+section {
+    width: 100%;
+    display: block;
 }
