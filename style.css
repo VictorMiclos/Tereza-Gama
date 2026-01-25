@@ -117,7 +117,7 @@ nav a:hover { color: var(--primary-color); }
 /* --- Banner Principal --- */
 
 .hero {
-    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?q=80&w=1600&auto=format&fit=crop'); 
+    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('img/banner_principal.png'); 
     /* Imagem de fundo genérica de natureza/calma */
     background-size: cover;
     background-position: center;
@@ -721,7 +721,7 @@ footer {
 
     /* Ajustes de Tipografia e Espaçamento */
     .hero h1 { font-size: 2.2rem; }
-    .section-title, .about-text h2 { font-size: 2rem; text-align: center; }
+    .section-title, .about-text h2 { font-size: 1.75rem; text-align: center; }
     .section-padding { padding: 40px 0; }
 
     /* Ajuste do Hero para não cortar conteúdo em telas pequenas */
