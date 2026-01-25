@@ -40,6 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
             navMenu.classList.toggle('active');
             const isExpanded = navMenu.classList.contains('active');
             hamburger.setAttribute('aria-expanded', isExpanded);
+            
+            // Bloqueia ou libera a rolagem da página quando o menu abre/fecha
+            document.body.style.overflow = isExpanded ? 'hidden' : '';
         });
 
         // Opcional: Fechar o menu ao clicar em um link
@@ -50,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     hamburger.classList.remove('active');
                     navMenu.classList.remove('active');
                     hamburger.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = ''; // Libera a rolagem
                 }
             });
         });
@@ -105,9 +109,67 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    /**
+     * Configura o botão de pausa/play do marquee de serviços.
+     */
+    function setupMarqueeControl() {
+        const toggleBtn = document.getElementById('marquee-toggle');
+        const marqueeContent = document.querySelector('.marquee-content');
+        
+        if (!toggleBtn || !marqueeContent) return;
+
+        // Ícones SVG para Play e Pause
+        const pauseIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>';
+        const playIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>';
+
+        toggleBtn.addEventListener('click', () => {
+            const isPaused = marqueeContent.classList.toggle('paused');
+            
+            if (isPaused) {
+                toggleBtn.innerHTML = playIcon;
+                toggleBtn.setAttribute('aria-label', 'Reproduzir animação');
+            } else {
+                toggleBtn.innerHTML = pauseIcon;
+                toggleBtn.setAttribute('aria-label', 'Pausar animação');
+            }
+        });
+    }
+
+    /**
+     * Monitora a rolagem para evitar que o botão do WhatsApp cubra o rodapé.
+     */
+    function setupWhatsAppScroll() {
+        const footer = document.querySelector('footer');
+        const whatsappBtn = document.querySelector('.whatsapp-float');
+        
+        if (!footer || !whatsappBtn) return;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // Se o rodapé entrou na tela, o botão vira absoluto (para na posição)
+                if (entry.isIntersecting) {
+                    whatsappBtn.style.position = 'absolute';
+                    // Define a posição exata acima do rodapé (altura do footer + 20px de margem)
+                    whatsappBtn.style.bottom = (footer.offsetHeight + 20) + 'px';
+                } else {
+                    // Volta a ser fixo na tela
+                    whatsappBtn.style.position = '';
+                    whatsappBtn.style.bottom = '';
+                }
+            });
+        }, {
+            root: null,
+            threshold: 0.1 // Dispara assim que 10% do rodapé estiver visível
+        });
+
+        observer.observe(footer);
+    }
+
     // Chama todas as funções de inicialização
     setupFAQ();
     setupMobileMenu();
     setupScrollReveal();
     initSwiper();
+    setupMarqueeControl();
+    setupWhatsAppScroll();
 });
