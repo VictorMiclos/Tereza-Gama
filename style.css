@@ -1,10 +1,10 @@
 /* --- Variáveis de Cores --- */
 
 :root {
-    --primary-color: #7A9E9F; /* Verde Sálvia Suave */
-    --primary-dark: #5D7A72;  /* Verde Escuro para hover */
-    --accent-color: #D8C3A5;  /* Bege Areia */
-    --bg-light: #F9F7F2;      /* Off-white creme */
+    --primary-color: #7E66AF; /* Lavanda (Suavidade/Espiritualidade) */
+    --primary-dark: #5E4B85;  /* Lavanda Escuro para hover */
+    --accent-color: #f594cc;  /* Rosa Vibrante (Acolhimento/Energia) */
+    --bg-light: #fbfaff;      /* Off-white com leve toque de lavanda para harmonizar */
     --text-color: #4A4A4A;    /* Cinza Escuro Suave */
     --text-light: #666666;
     --white: #FFFFFF;
@@ -121,7 +121,7 @@ nav a:hover { color: var(--primary-color); }
     /* Imagem de fundo genérica de natureza/calma */
     background-size: cover;
     background-position: center;
-    height: 90vh;
+    height: calc(100vh - 70px); /* Ajusta altura para descontar o cabeçalho */
     display: flex;
     align-items: center;
     text-align: center;
@@ -212,7 +212,7 @@ nav a:hover { color: var(--primary-color); }
 /* O Efeito de "Flutuar" ao passar o mouse */
 .card:hover {
     top: -10px; /* Sobe 10 pixels */
-    box-shadow: 0 15px 30px rgba(93, 122, 114, 0.15); /* Sombra verde suave */
+    box-shadow: 0 15px 30px rgba(126, 102, 175, 0.15); /* Sombra lavanda suave */
     border-color: var(--primary-color); /* Borda fica verde */
 }
 
@@ -562,7 +562,7 @@ nav a:hover { color: var(--primary-color); }
 .icon-circle {
     width: 40px; /* Levemente menor para ficar mais delicado */
     height: 40px;
-    background-color: rgba(122, 158, 159, 0.15);
+    background-color: rgba(126, 102, 175, 0.1); /* Fundo lavanda bem clarinho */
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -585,7 +585,7 @@ nav a:hover { color: var(--primary-color); }
     padding: 14px 0;
     font-size: 1.1rem;
     border-radius: 50px;
-    box-shadow: 0 4px 10px rgba(122, 158, 159, 0.3);
+    box-shadow: 0 4px 10px rgba(126, 102, 175, 0.3); /* Sombra lavanda */
     margin-top: 10px; /* Pequeno ajuste fino */
 }
 
@@ -729,7 +729,7 @@ footer {
         background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('img/banner_principal_celular.png');
         background-size: cover;
         background-position: center;
-        height: 100vh; /* Garante que ocupe toda a tela do celular */
+        height: calc(100vh - 70px); /* Desconta a altura do header (70px) para caber exato */
         padding: 0;    /* Remove espaçamento extra para centralizar perfeitamente */
     }
 
