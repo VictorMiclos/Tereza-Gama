@@ -726,9 +726,11 @@ footer {
 
     /* Ajuste do Hero para não cortar conteúdo em telas pequenas */
     .hero {
-        height: auto;
-        min-height: 85vh;
-        padding: 80px 0;
+        background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('img/banner_principal_celular.png');
+        background-size: cover;
+        background-position: center;
+        height: 100vh; /* Garante que ocupe toda a tela do celular */
+        padding: 0;    /* Remove espaçamento extra para centralizar perfeitamente */
     }
 
     .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 30px; }
