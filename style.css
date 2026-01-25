@@ -85,6 +85,14 @@ ul { list-style: none; }
     /* Animação para entrada suave e para mascarar o carregamento da fonte */
     animation: fadeIn 1.5s ease-out;
     animation-fill-mode: both;
+    transition: all 0.3s ease; /* Transição suave para o efeito de scroll */
+}
+
+/* Classe adicionada via JS ao rolar a página */
+.header.scrolled {
+    background-color: rgba(255, 255, 255, 0.9); /* Branco com leve transparência */
+    backdrop-filter: blur(5px); /* Efeito de desfoque no fundo (vidro fosco) */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sombra um pouco mais marcada */
 }
 
 .nav-container {
@@ -97,6 +105,14 @@ ul { list-style: none; }
 .logo {
     font-size: 1.7rem;
     font-weight: 700; /* O peso da fonte já é herdado de h1, h2, h3, .logo, mas é bom manter para clareza */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre a imagem e o texto */
+}
+
+.logo img {
+    height: 40px; /* Altura ajustada para caber no header de 70px */
+    width: auto;
 }
 
 nav ul { display: flex; gap: 25px; align-items: center; }
@@ -817,12 +833,3 @@ footer {
 
 /* 5. Seção FAQ -> MUDAR PARA BRANCO */
 #faq { background-color: var(--white); }
-
-/* 6. Seção Contato -> MUDAR PARA BEGE */
-#contato { background-color: var(--bg-light); }
-
-/* Garante que todas as seções tenham respiro em cima e embaixo */
-section {
-    width: 100%;
-    display: block;
-}
