@@ -30,6 +30,7 @@ body {
     color: var(--text-color);
     background-color: var(--bg-light);
     line-height: 1.6;
+    position: relative; /* Necessário para o botão parar no final da página */
 }
 
 h1, h2, h3, .logo {
@@ -281,6 +282,36 @@ nav a:hover { color: var(--primary-color); }
     width: 300px; /* Largura fixa para cada card */
     margin: 0 15px; /* Espaçamento entre os cards */
     flex-shrink: 0; /* Impede que os cards sejam espremidos */
+}
+
+/* --- Botão de Controle do Marquee --- */
+.marquee-control {
+    position: relative;
+    margin: 30px auto 0; /* Centraliza e dá espaço do topo */
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    opacity: 0.9;
+}
+
+.marquee-control:hover {
+    background-color: var(--primary-dark);
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+/* Classe para pausar via JS */
+.marquee-content.paused {
+    animation-play-state: paused !important;
 }
 
 /* --- Seção de Depoimentos --- */
@@ -641,6 +672,9 @@ footer {
 
 /* --- Responsividade Geral (Mobile First) --- */
 @media (max-width: 768px) {
+    /* Reduz a escala da fonte globalmente para mobile (aprox. 14.5px) */
+    html { font-size: 90%; }
+
     /* Mostra o hamburger no mobile */
     .menu-hamburger {
         display: flex;
@@ -685,9 +719,21 @@ footer {
         gap: 30px;
     }
 
-    .hero h1 { font-size: 2.5rem; }
-    .about-grid, .contact-grid { grid-template-columns: 1fr; }
-    .about-image { order: -1; } /* Coloca a imagem acima do texto no celular */
+    /* Ajustes de Tipografia e Espaçamento */
+    .hero h1 { font-size: 2.2rem; }
+    .section-title, .about-text h2 { font-size: 2rem; text-align: center; }
+    .section-padding { padding: 40px 0; }
+
+    /* Ajuste do Hero para não cortar conteúdo em telas pequenas */
+    .hero {
+        height: auto;
+        min-height: 85vh;
+        padding: 80px 0;
+    }
+
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 30px; }
+    .about-image { order: -1; margin-bottom: 0; } /* Remove margem extra, usa apenas o gap */
+    .about-image img { box-shadow: 5px 5px 0px var(--accent-color); } /* Sombra menor */
 
     /* Esconde as setas do carrossel para não espremer o conteúdo */
     .testimonial-layout .swiper-button-prev,
@@ -718,7 +764,7 @@ footer {
     bottom: 20px;  /* Distância do rodapé */
     right: 20px;   /* Distância da direita */
     z-index: 1000; /* Garante que fique acima de tudo */
-    transition: transform 0.3s ease; /* Animação suave */
+    transition: transform 0.3s ease; /* Anima apenas o zoom, não a posição */
 }
 
 .whatsapp-float img {
