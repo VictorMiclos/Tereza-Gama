@@ -3,7 +3,7 @@
 :root {
     --primary-color: #7E66AF; /* Lavanda (Suavidade/Espiritualidade) */
     --primary-dark: #5E4B85;  /* Lavanda Escuro para hover */
-    --accent-color: #f594cc;  /* Rosa Vibrante (Acolhimento/Energia) */
+    --accent-color: #7E66AF;  /* Lavanda (Substituindo o Rosa para manter o tom monocromático) */
     --bg-light: #fbfaff;      /* Off-white com leve toque de lavanda para harmonizar */
     --text-color: #4A4A4A;    /* Cinza Escuro Suave */
     --text-light: #666666;
@@ -495,10 +495,16 @@ nav a:hover { color: var(--primary-color); }
 /* --- Mensagem Motivacional --- */
 
 .quote {
-    background-color: var(--primary-color);
-    color: var(--white);
+    background-color: rgba(126, 102, 175, 0.1); /* Fundo lavanda bem suave e transparente */
+    color: var(--primary-dark); /* Texto escuro para leitura */
     text-align: center;
-    padding: 60px 0;
+    padding: 40px 0; /* Reduz a altura da seção */
+}
+
+.quote .container {
+    border-left: 1px solid var(--primary-color);
+    border-right: 1px solid var(--primary-color);
+    max-width: 800px; /* Deixa o bloco mais compacto e elegante */
 }
 
 .quote blockquote {
@@ -723,6 +729,10 @@ footer {
     .hero h1 { font-size: 2.2rem; }
     .section-title, .about-text h2 { font-size: 1.75rem; text-align: center; }
     .section-padding { padding: 40px 0; }
+
+    /* Ajuste da Citação para manter as bordas visíveis e elegantes no mobile */
+    .quote .container { width: 85%; padding: 0 15px; }
+    .quote blockquote { font-size: 1.3rem; }
 
     /* Ajuste do Hero para não cortar conteúdo em telas pequenas */
     .hero {
