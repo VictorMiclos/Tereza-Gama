@@ -144,25 +144,27 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (!footer || !whatsappBtn) return;
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                // Se o rodapé entrou na tela, o botão vira absoluto (para na posição)
-                if (entry.isIntersecting) {
-                    whatsappBtn.style.position = 'absolute';
-                    // Define a posição exata acima do rodapé (altura do footer + 20px de margem)
-                    whatsappBtn.style.bottom = (footer.offsetHeight + 20) + 'px';
-                } else {
-                    // Volta a ser fixo na tela
-                    whatsappBtn.style.position = '';
-                    whatsappBtn.style.bottom = '';
-                }
-            });
-        }, {
-            root: null,
-            threshold: 0.1 // Dispara assim que 10% do rodapé estiver visível
-        });
+        function checkScroll() {
+            const scrollY = window.scrollY || window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const docHeight = document.documentElement.scrollHeight;
+            const footerHeight = footer.offsetHeight;
+            
+            const distanceToBottom = docHeight - (scrollY + windowHeight);
 
-        observer.observe(footer);
+            // Troca para absoluto exatamente quando o rodapé tocaria o botão
+            if (distanceToBottom <= footerHeight) {
+                whatsappBtn.style.position = 'absolute';
+                whatsappBtn.style.bottom = (footerHeight + 20) + 'px';
+            } else {
+                whatsappBtn.style.position = 'fixed';
+                whatsappBtn.style.bottom = '20px';
+            }
+        }
+
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('resize', checkScroll);
+        checkScroll(); // Chama no início para ajustar se já estiver no fim
     }
 
     // Chama todas as funções de inicialização
