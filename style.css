@@ -431,6 +431,7 @@ nav a:hover { color: var(--primary-color); }
 
 .swiper-pagination-bullet {
     background-color: var(--accent-color);
+    background-color: var(--accent-color) !important;
     width: 10px;
     height: 10px;
     opacity: 0.7;
@@ -438,6 +439,7 @@ nav a:hover { color: var(--primary-color); }
 
 .swiper-pagination-bullet-active {
     background-color: var(--primary-color);
+    background-color: var(--primary-color) !important;
     opacity: 1;
 }
 
