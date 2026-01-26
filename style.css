@@ -47,6 +47,8 @@ a {
 
 ul { list-style: none; }
 
+.mobile-break { display: none; } /* Esconde a quebra de linha no desktop */
+
 .container {
     max-width: 1100px;
     margin: 0 auto;
@@ -699,6 +701,8 @@ footer {
 @media (max-width: 768px) {
     /* Reduz a escala da fonte globalmente para mobile (aprox. 14.5px) */
     html { font-size: 90%; }
+
+    .mobile-break { display: inline; } /* Ativa a quebra de linha no mobile */
 
     /* Cabeçalho mais translúcido no mobile */
     .header {
