@@ -167,6 +167,22 @@ document.addEventListener('DOMContentLoaded', () => {
         checkScroll(); // Chama no início para ajustar se já estiver no fim
     }
 
+    /**
+     * Adiciona efeito de transparência ao cabeçalho ao rolar a página.
+     */
+    function setupHeaderScrollEffect() {
+        const header = document.querySelector('.header');
+        if (!header) return;
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    }
+
     // Chama todas as funções de inicialização
     setupFAQ();
     setupMobileMenu();
@@ -174,4 +190,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initSwiper();
     setupMarqueeControl();
     setupWhatsAppScroll();
+    setupHeaderScrollEffect();
 });
