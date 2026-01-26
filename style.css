@@ -700,6 +700,16 @@ footer {
     /* Reduz a escala da fonte globalmente para mobile (aprox. 14.5px) */
     html { font-size: 90%; }
 
+    /* Cabeçalho mais translúcido no mobile */
+    .header {
+        background-color: rgba(255, 255, 255, 0.85); /* Transparência base */
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+    .header.scrolled {
+        background-color: rgba(255, 255, 255, 0.7); /* Mais transparente ao rolar */
+    }
+
     /* Mostra o hamburger no mobile */
     .menu-hamburger {
         display: flex;
