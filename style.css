@@ -44,6 +44,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -59,8 +60,8 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     z-index: -1;
     pointer-events: none;
 }
@@ -293,6 +294,16 @@ h4,
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--color-primary);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.mobile-only {
+    display: none;
 }
 
 /* ==========================================================================
@@ -1178,18 +1189,123 @@ footer {
     .mobile-menu-btn {
         display: block;
     }
+    
+    .desktop-only {
+        display: none;
+    }
+    
+    .mobile-only {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
 
     .hero h1 {
-        font-size: 2.8rem;
+        font-size: 3.2rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column-reverse;
+        align-items: center;
+        width: 100%;
+        gap: 15px;
+    }
+    
+    .hero-buttons .btn {
+        width: 80%;
+        max-width: 280px;
+    }
+
+    .hero-buttons .btn-primary {
+        background: transparent;
+        color: var(--color-text-main);
+        border: 1px solid var(--color-primary);
+        box-shadow: none;
+    }
+
+    .hero-buttons .btn-primary::before {
+        display: none;
+    }
+
+    .hero-buttons .btn-primary:hover {
+        background: rgba(214, 222, 237, 0.1);
+        box-shadow: var(--glow-primary);
+        transform: translateY(-2px);
+    }
+
+    .hero-buttons .btn-secondary {
+        background: var(--gradient-gold);
+        color: var(--color-dark-base);
+        box-shadow: var(--glow-secondary);
+        border: none;
+    }
+
+    .hero-buttons .btn-secondary::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #d97706, var(--color-secondary));
+        z-index: -1;
+        transition: opacity 0.3s ease;
+        opacity: 0;
+        display: block;
+    }
+
+    .hero-buttons .btn-secondary:hover::before {
+        opacity: 1;
+    }
+
+    .hero-buttons .btn-secondary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 30px rgba(250, 165, 54, 0.8);
     }
 
     .section {
         padding: 60px 0;
     }
+    
+    .main-glass-card {
+        padding: 30px 20px;
+    }
 
     .footer-content {
         flex-direction: column;
         text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-btn-text {
+        display: none;
+    }
+    .mobile-only {
+        padding: 8px;
+        border-radius: 50%;
+    }
+    .mobile-only i {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+    .hero h1 {
+        font-size: 2.6rem;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+    .founder-image-wrapper {
+        width: 180px;
+        height: 180px;
+    }
+    .founder-card {
+        padding: 30px 15px;
+    }
+    .contact-box {
+        padding: 30px 15px;
     }
 }
 
@@ -1307,8 +1423,8 @@ footer {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     z-index: 9999;
     display: flex;
     align-items: center;
